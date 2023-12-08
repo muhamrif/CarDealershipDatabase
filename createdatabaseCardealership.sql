@@ -29,10 +29,10 @@ CREATE TABLE dealerships (
 CREATE TABLE vehicles (
     vin VARCHAR(5) NOT NULL PRIMARY KEY,
     vehicle_year int,
-    make text,
-    model text,
-    vehicle_type text,
-    color text,
+    make VARCHAR(30),
+    model VARCHAR(30),
+    vehicle_type VARCHAR(30),
+    color VARCHAR(30),
     odometer int,
     price float,
     sold BOOLEAN 
@@ -56,11 +56,11 @@ CREATE TABLE inventory (
 CREATE TABLE sales_contract (
 	contract_ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     contract_date date,
-    customer_name text,
-	customer_email text, 
+    customer_name VARCHAR(30),
+	customer_email VARCHAR(30), 
     sales_tax float,
     
-    vin VARCHAR(10),
+    vin VARCHAR(5),
     FOREIGN KEY (vin) REFERENCES vehicles(vin)
 );
 
@@ -71,9 +71,9 @@ CREATE TABLE sales_contract (
 CREATE TABLE lease_contract (
 	contract_ID INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
     contract_date date,
-    customer_name text,
-	customer_email text, 
-    vin VARCHAR(10),
+    customer_name VARCHAR(30),
+	customer_email VARCHAR(30), 
+    vin VARCHAR(5),
     FOREIGN KEY (vin) REFERENCES vehicles(vin)
 );
 
