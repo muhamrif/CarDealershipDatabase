@@ -45,7 +45,6 @@ CREATE TABLE vehicles (
 CREATE TABLE inventory (
     dealership_ID INTEGER,
     vin VARCHAR(5),
-    sold BOOLEAN,
     FOREIGN KEY (dealership_ID) REFERENCES dealerships(dealership_ID),
     FOREIGN KEY (vin) REFERENCES vehicles(vin)
 );
@@ -98,17 +97,17 @@ INSERT INTO vehicles (vin, vehicle_year, make, model, vehicle_type, color, odome
     ('VIN16', 2021, 'Toyota', 'Corolla', 'Sedan', 'Purple', 19000, 27000.00, FALSE);
 
 
-INSERT INTO inventory (dealership_ID, vin, sold) VALUES
-    (4, 'VIN07', FALSE),
-    (3, 'VIN08', TRUE),
-    (3, 'VIN09', FALSE),
-    (3, 'VIN10', TRUE),
-    (2, 'VIN11', TRUE),
-    (2, 'VIN12', FALSE),
-    (2, 'VIN13', TRUE),
-    (1, 'VIN14', FALSE),
-    (1, 'VIN15', TRUE),
-    (1, 'VIN16', FALSE);
+INSERT INTO inventory (dealership_ID, vin) VALUES
+    (4, "VIN07"),
+    (3, 'VIN08'),
+    (3, 'VIN09'),
+    (3, 'VIN10'),
+    (2, 'VIN11'),
+    (2, 'VIN12'),
+    (2, 'VIN13'),
+    (1, 'VIN14'),
+    (1, 'VIN15'),
+    (1, 'VIN16');
 
 INSERT INTO sales_contract (contract_date, customer_name, customer_email, sales_tax, vin) VALUES
     ('2023-09-15', 'Sophia Johnson', 'sophia.johnson@example.com', 0.08, 'VIN08'),
